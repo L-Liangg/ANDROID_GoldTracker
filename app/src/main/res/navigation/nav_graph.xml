@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.liang.goldtracker.ui.dashboard.DashboardFragment"
+        android:label="Bảng giá" />
+
+    <fragment
+        android:id="@+id/priceFragment"
+        android:name="com.liang.goldtracker.ui.price.PriceFragment"
+        android:label="Quy đổi" />
+
+    <fragment
+        android:id="@+id/alertFragment"
+        android:name="com.liang.goldtracker.ui.alert.AlertFragment"
+        android:label="Theo dõi" />
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.liang.goldtracker.ui.history.HistoryFragment"
+        android:label="Lịch sử" />
+
+</navigation>

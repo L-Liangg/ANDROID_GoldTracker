@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Dropdown loại vàng -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_gold_type"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chọn loại vàng"
+            android:layout_marginBottom="12dp">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_gold_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- EditText giá mua vào -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_purchase_price"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Giá mua vào (để trống nếu không tính lãi/lỗ)"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_purchase_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- EditText số lượng -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_quantity"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số lượng"
+            android:layout_marginBottom="12dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Nút tra cứu -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_lookup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tra cứu"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Bảng thông tin vàng -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_info_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Row: Đơn vị -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Đơn vị" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface" />
+                </LinearLayout>
+
+                <!-- Row: Tiền tệ -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tiền tệ" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_currency" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface" />
+                </LinearLayout>
+
+                <!-- Row: Số lượng -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Số lượng" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_quantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface" />
+                </LinearLayout>
+
+                <!-- Row: Giá mua -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Giá mua" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                        <TextView android:id="@+id/tv_info_buy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/buy_color" />
+                        <TextView android:id="@+id/tv_info_buy_change" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="11sp" android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row: Giá bán -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Giá bán" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="end">
+                        <TextView android:id="@+id/tv_info_sell" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/sell_color" />
+                        <TextView android:id="@+id/tv_info_sell_change" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="11sp" android:visibility="gone" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row: Tổng mua -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tổng tiền mua" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_total_buy" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/buy_color" />
+                </LinearLayout>
+
+                <!-- Row: Tổng bán -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Tổng tiền bán" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_total_sell" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="@color/sell_color" />
+                </LinearLayout>
+
+                <!-- Row: Cập nhật -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Cập nhật" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_updated" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="?attr/colorOnSurface" />
+                </LinearLayout>
+
+                <!-- Divider lãi/lỗ -->
+                <View android:id="@+id/divider_profit" android:layout_width="match_parent" android:layout_height="1dp" android:background="?attr/colorOutlineVariant" android:layout_marginVertical="8dp" android:visibility="gone" />
+
+                <!-- Row: Giá mua vào -->
+                <LinearLayout android:id="@+id/row_purchase_price" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp" android:visibility="gone">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Giá mua vào" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_purchase_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" android:textColor="?attr/colorOnSurface" />
+                </LinearLayout>
+
+                <!-- Row: Lãi/lỗ -->
+                <LinearLayout android:id="@+id/row_profit" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="6dp" android:visibility="gone">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Lãi/lỗ" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_profit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Row: Lãi/lỗ % -->
+                <LinearLayout android:id="@+id/row_profit_percent" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Lãi/lỗ %" android:textColor="?attr/colorOnSurfaceVariant" android:textSize="13sp" />
+                    <TextView android:id="@+id/tv_info_profit_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textStyle="bold" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Chart 7 ngày -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Biến động 7 ngày"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"
+                    android:layout_marginBottom="8dp" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/line_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

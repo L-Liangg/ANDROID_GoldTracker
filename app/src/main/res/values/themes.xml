@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.GoldTrackerApp" parent="Theme.Material3.Light">
+
+        <item name="colorPrimary">@color/gold_primary</item>
+        <item name="colorOnPrimary">@color/gold_on_primary</item>
+
+        <item name="colorSecondary">@color/gold_light</item>
+        <item name="colorOnSecondary">@color/gold_on_primary</item>
+
+        <item name="android:statusBarColor">@color/gold_dark</item>
+        <item name="actionBarStyle">@style/CustomActionBar</item>
+
+    </style>
+
+    <style name="CustomActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="contentInsetStart">16dp</item>
+        <item name="background">@color/gold_primary</item>
+        <item name="titleTextStyle">@style/CustomActionBarTitle</item>
+        <item name="elevation">8dp</item>
+    </style>
+
+    <style name="CustomActionBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/gold_on_primary</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>
